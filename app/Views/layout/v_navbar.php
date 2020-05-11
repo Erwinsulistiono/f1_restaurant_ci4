@@ -335,9 +335,9 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="./index2.html" class="nav-link">
+                        <a href="<?= base_url('user/tambah') ?>" class="nav-link">
                           <i class="nav-icon"></i>
-                          <p>Ubah Password</p>
+                          <p>Tambah User</p>
                         </a>
                       </li>
                     </ul>

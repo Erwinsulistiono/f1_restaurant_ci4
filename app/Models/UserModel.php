@@ -5,15 +5,9 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-
-  function __construct()
+  public function get_user()
   {
-    $this->db = db_connect();
-  }
-
-  function tampildata()
-  {
-    return $this->db->table('sys_user')->get();
+    return $this->db->table('sys_user')->get()->getResultArray();;
   }
 
 }
