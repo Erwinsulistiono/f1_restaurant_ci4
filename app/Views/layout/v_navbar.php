@@ -329,13 +329,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                        <a href="<?= base_url('User') ?>" class="nav-link">
+                        <a href="<?= base_url('user') ?>" class="nav-link">
                           <i class="nav-icon"></i>
                           <p>User List</p>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="<?= base_url('user/tambah') ?>" class="nav-link">
+                        <a href="<?= base_url('user/tambah_user') ?>" class="nav-link">
                           <i class="nav-icon"></i>
                           <p>Tambah User</p>
                         </a>

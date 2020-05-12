@@ -1,3 +1,10 @@
+<?php
+if (!empty(session()->getFlashdata('success'))) { ?>
+    <div class="alert alert-success">
+      <?= session()->getFlashdata('success'); ?>
+    </div>
+<?php } ?>
+    
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -30,10 +37,10 @@
                   <td><?= $value['telp']; ?></td>
                   <td><?= $value['jabatan']; ?></td>
                   <td><?= $value['cabang']; ?></td>
-                  <td><?= $value['tgl masuk']; ?></td>
+                  <td><?= $value['tgl_masuk']; ?></td>
                   <td>
-                    <a href="" class="btn btn-warning">edit</a>
-                    <a href="" class="btn btn-danger">hapus</a>
+                    <a href="<?= base_url('user/edit/'.$value['id']); ?>" class="btn btn-warning">edit</a>
+                    <a href="<?= base_url('user/delete/'.$value['id']); ?>" class="btn btn-danger" onClick="return confirm('Hapus Data ?')">hapus</a>
                   </td>
                 </tr>
                 <?php } ?>

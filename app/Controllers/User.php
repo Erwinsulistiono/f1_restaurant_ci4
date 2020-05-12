@@ -25,7 +25,7 @@ class User extends BaseController
     echo view('layout/v_wrapper',$data);
   }
 
-  public function tambah() 
+  public function tambah_user() 
   {
     $data = [
       'title' => 'Tambah User',
@@ -33,5 +33,57 @@ class User extends BaseController
     ];
     echo view('layout/v_wrapper',$data);
   }
+
+  public function save()
+  {
+    $data = [
+      'id' => $this->request->getPost('id'),
+      'nama' => $this->request->getPost('nama'),
+      'password' => $this->request->getPost('password'),
+      'telp' => $this->request->getPost('telp'),
+      'jabatan' => $this->request->getPost('jabatan'),
+      'cabang' => $this->request->getPost('cabang'),
+      'level' => $this->request->getPost('level'),
+      'tgl_lahir' => $this->request->getPost('tgl_lahir')
+    ];
+    
+    $this->UserModel->insert_user($data);
+    session()->setFlashdata('success','Data Berhasil Ditambah');
+    return redirect()->to(base_url('user'));
+  }
+
+  public function edit($user_id) 
+  {
+    $data = [
+      'title' => 'Edit User',
+      'user' => $this->UserModel->user_edit($user_id),
+      'isi' => 'v_user_edit'
+    ];
+    echo view('layout/v_wrapper',$data);
+  }
+
+  public function update($user_id)
+  {
+    $data = [
+      'id' => $this->request->getPost('id'),
+      'nama' => $this->request->getPost('nama'),
+      'telp' => $this->request->getPost('telp'),
+      'jabatan' => $this->request->getPost('jabatan'),
+      'cabang' => $this->request->getPost('cabang'),
+      'level' => $this->request->getPost('level'),
+      'tgl_lahir' => $this->request->getPost('tgl_lahir')
+    ];
+    $this->UserModel->user_update($data, $user_id);
+    session()->setFlashdata('success','Data Berhasil Diupdate');
+    return redirect()->to(base_url('user'));
+  }
+
+  public function delete($user_id)
+  {
+    $this->UserModel->user_delete($user_id);
+    session()->setFlashdata('success','Data Berhasil Dihapus');
+    return redirect()->to(base_url('user'));
+  }
+  
 
 }
