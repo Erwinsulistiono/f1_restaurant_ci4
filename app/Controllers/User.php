@@ -39,16 +39,16 @@ class User extends BaseController
     $data = [
       'id' => $this->request->getPost('id'),
       'nama' => $this->request->getPost('nama'),
-      'password' => $this->request->getPost('password'),
       'telp' => $this->request->getPost('telp'),
       'jabatan' => $this->request->getPost('jabatan'),
       'cabang' => $this->request->getPost('cabang'),
       'level' => $this->request->getPost('level'),
-      'tgl_lahir' => $this->request->getPost('tgl_lahir')
+      'tgl_lahir' => $this->request->getPost('tgl_lahir'),
+      'password' => md5($this->request->getPost('password')),
     ];
     
     $this->UserModel->insert_user($data);
-    session()->setFlashdata('success','Data Berhasil Ditambah');
+    session()->setFlashdata('success','data Berhasil Ditambah');
     return redirect()->to(base_url('user'));
   }
 
@@ -71,10 +71,11 @@ class User extends BaseController
       'jabatan' => $this->request->getPost('jabatan'),
       'cabang' => $this->request->getPost('cabang'),
       'level' => $this->request->getPost('level'),
-      'tgl_lahir' => $this->request->getPost('tgl_lahir')
+      'tgl_lahir' => $this->request->getPost('tgl_lahir'),
+      'password' => md5($this->request->getPost('password')),
     ];
     $this->UserModel->user_update($data, $user_id);
-    session()->setFlashdata('success','Data Berhasil Diupdate');
+    session()->setFlashdata('success', $data['nama'] . ' Berhasil Diupdate');
     return redirect()->to(base_url('user'));
   }
 

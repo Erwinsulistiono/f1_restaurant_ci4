@@ -7,7 +7,7 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
-      <form action="<?= base_url('home/dashboard') ?>" method="post">
+      <form action="<?= base_url('login/cek_login') ?>" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="EmployeID" name="id" id="id" value="<?= set_value('id') ?>" required>
           <div class="input-group-append">
@@ -24,6 +24,12 @@
             </div>
           </div>
         </div>
+        <?php
+          if (!empty(session()->getFlashdata('msg'))) { ?>
+              <div class="alert alert-warning alert-dismissible fade show">
+                <?= session()->getFlashdata('msg'); ?>
+              </div>
+          <?php } ?>
         <div class="row">
           <!-- /.col -->
           <div class="col-12">
