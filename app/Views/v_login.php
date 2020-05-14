@@ -1,7 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>F1_Restaurant</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?= base_url() ?>/template/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="<?= base_url() ?>/template//plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?= base_url() ?>/template//dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"></a>
+    <a href="http://<?= $title_pt['pt_website'] ?>">
+    <span style="white-space: nowrap;"><?= $title_pt['pt_nm'] ?></span></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -9,7 +31,7 @@
       <p class="login-box-msg">Sign in to start your session</p>
       <form action="<?= base_url('login/cek_login') ?>" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="EmployeID" name="id" id="id" value="<?= set_value('id') ?>" required>
+          <input type="text" class="form-control" placeholder="EmployeID" name="id" id="id" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -26,14 +48,14 @@
         </div>
         <?php
           if (!empty(session()->getFlashdata('msg'))) { ?>
-              <div class="alert alert-warning alert-dismissible fade show">
+              <div class="alert alert-warning alert-dismissible fade show" >
                 <?= session()->getFlashdata('msg'); ?>
               </div>
           <?php } ?>
         <div class="row">
           <!-- /.col -->
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -43,3 +65,14 @@
   </div>
 </div>
 <!-- /.login-box -->
+
+
+<!-- jQuery -->
+<script src="<?= base_url() ?>/template/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?= base_url() ?>/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?= base_url() ?>/template/dist/js/adminlte.min.js"></script>
+
+</body>
+</html>

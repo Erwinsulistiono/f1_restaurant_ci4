@@ -11,4 +11,10 @@ class LoginModel extends Model
         ->get()->getRowArray();
     }
 
+    public function cek_pt()
+    {
+        return $this->db->table('ms_pt')
+        ->get()->getRowArray();
+    }
+
 }

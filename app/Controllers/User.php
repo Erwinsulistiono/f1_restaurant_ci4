@@ -22,7 +22,7 @@ class User extends BaseController
       'user' => $this->UserModel->get_user(),
       'isi' => 'v_user_list'
     ];
-    echo view('layout/v_wrapper',$data);
+    echo view('v_wrapper',$data);
   }
 
   public function tambah_user() 
@@ -31,7 +31,7 @@ class User extends BaseController
       'title' => 'Tambah User',
       'isi' => 'v_user_tambah'
     ];
-    echo view('layout/v_wrapper',$data);
+    echo view('v_wrapper',$data);
   }
 
   public function save()
@@ -59,7 +59,7 @@ class User extends BaseController
       'user' => $this->UserModel->user_edit($user_id),
       'isi' => 'v_user_edit'
     ];
-    echo view('layout/v_wrapper',$data);
+    echo view('v_wrapper',$data);
   }
 
   public function update($user_id)
