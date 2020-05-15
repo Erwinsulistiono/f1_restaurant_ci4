@@ -1,4 +1,11 @@
+<?php
+if ($data['isi'] = 'v_pos'){ ?>
+<body class="hold-transition sidebar-mini sidebar-collapse layout-footer-fixed">
+<?php }
+else { ?>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+
+<?php } ?>
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
