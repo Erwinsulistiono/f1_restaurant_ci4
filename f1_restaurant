@@ -1,0 +1,75 @@
+/*
+SQLyog Ultimate v11.11 (64 bit)
+MySQL - 5.5.5-10.4.11-MariaDB : Database - f1_restaurant
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*Table structure for table `ms_level` */
+
+DROP TABLE IF EXISTS `ms_level`;
+
+CREATE TABLE `ms_level` (
+  `level_id` int(1) NOT NULL,
+  `level_desc` varchar(30) NOT NULL,
+  PRIMARY KEY (`level_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `ms_level` */
+
+insert  into `ms_level`(`level_id`,`level_desc`) values (1,'Admin'),(2,'User'),(3,'Kitchen'),(4,'Inventory');
+
+/*Table structure for table `ms_pt` */
+
+DROP TABLE IF EXISTS `ms_pt`;
+
+CREATE TABLE `ms_pt` (
+  `pt_cd` varchar(30) NOT NULL,
+  `pt_nm` varchar(30) NOT NULL,
+  `pt_npwp` varchar(30) NOT NULL,
+  `pt_addr` text NOT NULL,
+  `pt_country` varchar(30) NOT NULL,
+  `pt_pic_nm` varchar(30) NOT NULL,
+  `pt_pic_telp` int(25) NOT NULL,
+  `flg_cabang` varchar(1) NOT NULL DEFAULT 'y',
+  `pt_email` varchar(30) DEFAULT NULL,
+  `pt_website` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `ms_pt` */
+
+insert  into `ms_pt`(`pt_cd`,`pt_nm`,`pt_npwp`,`pt_addr`,`pt_country`,`pt_pic_nm`,`pt_pic_telp`,`flg_cabang`,`pt_email`,`pt_website`) values ('mdf-001','PT. Mitra Digital Futuristik 2','0123 0231 0231 01-000','Jl Tanah Abang 2, Jakarta Pusat                                            ','Indonesia','',2147483647,'y','head.office@mdf.com','mitradigitalfuturistik.com');
+
+/*Table structure for table `ms_user` */
+
+DROP TABLE IF EXISTS `ms_user`;
+
+CREATE TABLE `ms_user` (
+  `id` int(12) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `telp` varchar(50) NOT NULL,
+  `jabatan` varchar(50) NOT NULL,
+  `cabang` varchar(50) NOT NULL,
+  `level` int(1) NOT NULL,
+  `tgl_masuk` date NOT NULL,
+  `tgl_lahir` date NOT NULL DEFAULT '1900-01-01',
+  `updatedat` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `ms_user` */
+
+insert  into `ms_user`(`id`,`nama`,`password`,`telp`,`jabatan`,`cabang`,`level`,`tgl_masuk`,`tgl_lahir`,`updatedat`) values (1,'Admin1','25d55ad283aa400af464c76d713c07ad','08119288193','Admin','Head Office',1,'2020-05-12','2000-01-21',NULL),(2,'Admin2','25d55ad283aa400af464c76d713c07ad','08119288193','Sales','Head Office',1,'2020-05-12','1999-09-09',NULL),(3,'Admin3','25d55ad283aa400af464c76d713c07ad','08119288193','marketing','Head Office',1,'2020-05-12','2000-10-10',NULL),(4,'Admin4','25d55ad283aa400af464c76d713c07ad','08119288193','HRD','Head Office',1,'2020-05-12','2000-12-20',NULL),(5,'Admin5','12345678','08119288193','Operational','Head Office',1,'2020-05-12','1999-09-09',NULL),(6,'Admin6','12345678','08119288193','produksi','Head Office',1,'2020-05-12','1999-09-09',NULL),(7,'Admin7','','08119288193','Admin','Head Office',3,'2020-05-12','1993-01-31',NULL),(8,'Admin8','12345678','08128739268','Admin','Mall Kelapa Gading',1,'2020-05-12','1993-11-21',NULL),(9,'Admin9','12345678','08221134212','Design Graphic','Pusat',2,'2020-05-12','1993-11-21',NULL),(10,'Admin10','12345678','08128739268','IT Dev','Head Office',1,'2020-05-12','1993-01-31',NULL),(11,'Admin11','12345678','1231982391823','Admin','Mall Kelapa Gading',1,'2020-05-12','2000-01-20',NULL);
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
