@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\ParameterModel;
+use App\Models\LoginModel;
 
 class Parameter extends BaseController
 {
@@ -12,11 +13,13 @@ class Parameter extends BaseController
   public function __construct()
   {
     $this->ParameterModel = new ParameterModel();
+    $this->LoginModel = new LoginModel();
   }
     
   public function profile() 
   {
     $data = [
+      'title_pt' => $this->LoginModel->cek_pt(),
       'title' => 'Profile PT',
       'pt' => $this->ParameterModel->get_pt(),
       'isi' => 'v_parameter_profile'
