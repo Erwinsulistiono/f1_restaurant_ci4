@@ -6,7 +6,7 @@ use App\Controllers\Home;
 class Produksi extends BaseController
 {
 	function __construct(){
-        parent::__construct();
+        
         // $this->load->model('ProductModel');
     }
 	
